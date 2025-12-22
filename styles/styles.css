@@ -1,38 +1,402 @@
+/* ================================================
+   CHIRHO - Estilos Personalizados
+   Framework: Bootstrap 5.3.2
+   ================================================ */
+
+/* ------------------------------------------------
+   Variables CSS Personalizadas
+   ------------------------------------------------ */
+:root {
+  --chirho-primary: #2a4466;
+  --chirho-primary-light: #3a5a7c;
+  --chirho-primary-dark: #1a3456;
+  --chirho-secondary: #6c757d;
+  --chirho-accent: #17a2b8;
+  --chirho-light: #f8f9fa;
+  --chirho-dark: #212529;
+  --chirho-white: #ffffff;
+  --chirho-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --chirho-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --chirho-transition: all 0.3s ease-in-out;
+  --chirho-border-radius: 0.5rem;
+}
+
+/* ------------------------------------------------
+   Estilos Base y Reset
+   ------------------------------------------------ */
 body {
-    margin: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--chirho-dark);
 }
 
-.index_body_chirho, .encabezado_chirho {
-    background-color: #2a4466;
+/* ------------------------------------------------
+   Sobrescritura de Colores Bootstrap
+   ------------------------------------------------ */
+.bg-primary {
+  background-color: var(--chirho-primary) !important;
 }
 
-.index_encabezado_chirho, .encabezado_chirho {
-    color: white;
+.text-primary {
+  color: var(--chirho-primary) !important;
 }
 
-.main_chirho {
-    background-image: url('../assets/background_img_chirho.jpg');
-     min-height: 150vh; 
+.btn-primary {
+  background-color: var(--chirho-primary);
+  border-color: var(--chirho-primary);
 }
 
-.logo_chirho {
-    width: 50px;
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--chirho-primary-dark);
+  border-color: var(--chirho-primary-dark);
 }
 
-.nav_chirho {
-    /* list-style: none; */
+.btn-outline-primary {
+  color: var(--chirho-primary);
+  border-color: var(--chirho-primary);
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: var(--chirho-primary);
+  border-color: var(--chirho-primary);
+  color: var(--chirho-white);
 }
 
-.footer_logos_chirho {
-    width: 50px;
+/* ------------------------------------------------
+   Navbar Personalizado
+   ------------------------------------------------ */
+.navbar {
+  padding: 0.75rem 0;
+  box-shadow: var(--chirho-shadow-sm);
 }
 
-.catalogo_chirho {
-    color: black;
-    text-decoration: underline;
+.logo-navbar {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: var(--chirho-transition);
+}
+
+.navbar-nav .nav-link:hover {
+  opacity: 0.85;
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: var(--chirho-shadow);
+  border-radius: var(--chirho-border-radius);
+}
+
+.dropdown-item {
+  padding: 0.5rem 1.5rem;
+  transition: var(--chirho-transition);
+}
+
+.dropdown-item:hover {
+  background-color: var(--chirho-primary);
+  color: var(--chirho-white);
+}
+
+.dropdown-item.active {
+  background-color: var(--chirho-primary);
+}
+
+/* ------------------------------------------------
+   Hero Section
+   ------------------------------------------------ */
+.hero-section {
+  background-image: linear-gradient(rgba(42, 68, 102, 0.85), rgba(42, 68, 102, 0.9)),
+                    url('../assets/background_img_chirho.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------------------------------------------
+   Page Header (Páginas Internas)
+   ------------------------------------------------ */
+.page-header {
+  background: linear-gradient(135deg, var(--chirho-primary) 0%, var(--chirho-primary-dark) 100%);
+}
+
+/* ------------------------------------------------
+   Cards de Servicios
+   ------------------------------------------------ */
+.service-card {
+  transition: var(--chirho-transition);
+  border-radius: var(--chirho-border-radius);
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--chirho-shadow);
+}
+
+.card {
+  border-radius: var(--chirho-border-radius);
+}
+
+/* ------------------------------------------------
+   Icon Circle (Para íconos en círculos)
+   ------------------------------------------------ */
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+/* ------------------------------------------------
+   Icon Box (Para íconos más grandes)
+   ------------------------------------------------ */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------
+   Footer
+   ------------------------------------------------ */
+footer {
+  border-top: 3px solid var(--chirho-primary);
+}
+
+.logo-footer {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: var(--chirho-transition);
+  filter: brightness(0) invert(1);
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* ------------------------------------------------
+   Formularios
+   ------------------------------------------------ */
+.form-control,
+.form-select {
+  border-radius: var(--chirho-border-radius);
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  transition: var(--chirho-transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--chirho-primary);
+  box-shadow: 0 0 0 0.2rem rgba(42, 68, 102, 0.25);
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------------------------
+   Botones Personalizados
+   ------------------------------------------------ */
+.btn {
+  border-radius: var(--chirho-border-radius);
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: var(--chirho-transition);
+}
+
+.btn-lg {
+  padding: 0.75rem 2rem;
+}
+
+.btn-light:hover {
+  background-color: #e9ecef;
+}
+
+.btn-outline-light:hover {
+  color: var(--chirho-primary);
+}
+
+/* Botones de redes sociales circulares */
+.btn.rounded-circle {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------
+   Secciones con Bordes Redondeados
+   ------------------------------------------------ */
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* ------------------------------------------------
+   Animaciones y Transiciones
+   ------------------------------------------------ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section .container {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* ------------------------------------------------
+   Responsive Adjustments
+   ------------------------------------------------ */
+
+/* Tablets */
+@media (max-width: 991.98px) {
+  .hero-section {
+    min-height: 60vh;
+    background-attachment: scroll;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .navbar-collapse {
+    background-color: var(--chirho-primary);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border-radius: var(--chirho-border-radius);
+  }
+}
+
+/* Móviles */
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 50vh;
+  }
+
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .icon-box {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-lg {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  footer .row {
+    text-align: center;
+  }
+
+  .social-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 575.98px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .display-5 {
+    font-size: 1.5rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* ------------------------------------------------
+   Utilidades Adicionales
+   ------------------------------------------------ */
+.shadow-hover:hover {
+  box-shadow: var(--chirho-shadow) !important;
+}
+
+.text-decoration-none:hover {
+  text-decoration: none !important;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejora de accesibilidad - focus visible */
+*:focus-visible {
+  outline: 2px solid var(--chirho-primary);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------
+   Print Styles
+   ------------------------------------------------ */
+@media print {
+  .navbar,
+  footer,
+  .btn {
+    display: none !important;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 2rem 0;
+  }
 }
