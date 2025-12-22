@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+.index_body_chirho, .encabezado_chirho {
+    background-color: #2a4466;
+}
+
+.index_encabezado_chirho, .encabezado_chirho {
+    color: white;
+}
+
+.main_chirho {
+    background-image: url('../assets/background_img_chirho.jpg');
+     min-height: 150vh; 
+}
+
+.logo_chirho {
+    width: 50px;
+}
+
+.nav_chirho {
+    /* list-style: none; */
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer_logos_chirho {
+    width: 50px;
+}
+
+.catalogo_chirho {
+    color: black;
+    text-decoration: underline;
+}
