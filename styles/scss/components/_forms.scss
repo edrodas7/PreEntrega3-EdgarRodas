@@ -7,22 +7,127 @@
 // ------------------------------------------------
 // Form controls
 // Usando @extend para estilos base de inputs
+// Con transiciones y animaciones al focus
 // ------------------------------------------------
 .form-control,
 .form-select {
   @extend %input-base;  // Usa @extend para estilos base
   padding: 0.75rem $spacing-md;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: $chirho-primary-light;
+  }
 
   &:focus {
     border-color: $chirho-primary;
     box-shadow: $chirho-shadow-focus;
+    transform: translateY(-2px);
   }
 }
 
 // ------------------------------------------------
-// Labels
+// Labels con transicion
 // ------------------------------------------------
 .form-label {
   font-weight: $chirho-font-weight-medium;
   margin-bottom: $spacing-sm;
+  transition: color 0.3s ease;
+}
+
+// ------------------------------------------------
+// Form group con animacion de label
+// ------------------------------------------------
+.form-group {
+  position: relative;
+
+  .form-label {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  &:focus-within .form-label {
+    color: $chirho-primary;
+  }
+}
+
+// ------------------------------------------------
+// Input con linea animada debajo
+// ------------------------------------------------
+.form-control-underline {
+  border: none;
+  border-bottom: 2px solid $chirho-gray;
+  border-radius: 0;
+  padding-left: 0;
+  background: transparent;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-bottom-color: $chirho-primary;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+// ------------------------------------------------
+// Input con efecto de brillo al focus
+// ------------------------------------------------
+.form-control-glow {
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($chirho-primary, 0.15),
+                0 0 15px rgba($chirho-primary, 0.1);
+  }
+}
+
+// ------------------------------------------------
+// Textarea con resize animado
+// ------------------------------------------------
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, min-height 0.3s ease;
+
+  &:focus {
+    min-height: 150px;
+  }
+}
+
+// ------------------------------------------------
+// Checkbox y Radio personalizados
+// ------------------------------------------------
+.form-check-input {
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: $chirho-primary;
+    transform: scale(1.1);
+  }
+
+  &:checked {
+    background-color: $chirho-primary;
+    border-color: $chirho-primary;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($chirho-primary, 0.25);
+  }
+}
+
+// ------------------------------------------------
+// Estado de error con animacion shake
+// ------------------------------------------------
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  animation: shake 0.4s ease;
+}
+
+// ------------------------------------------------
+// Estado de exito con animacion sutil
+// ------------------------------------------------
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: #28a745;
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  }
 }

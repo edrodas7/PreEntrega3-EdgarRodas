@@ -6,20 +6,32 @@
 
 // ------------------------------------------------
 // Icon Circle (iconos pequenos en circulos)
+// Con transicion suave
 // ------------------------------------------------
 .icon-circle {
   @extend %flex-center;  // Usa @extend para centrado
   @include icon-size($icon-circle-size);
   border-radius: 50%;
   font-size: 1.25rem;
+  transition: $chirho-transition;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 // ------------------------------------------------
 // Icon Box (iconos grandes)
+// Con efecto de rotacion sutil
 // ------------------------------------------------
 .icon-box {
   @extend %flex-center;  // Usa @extend para centrado
   @include icon-size($icon-box-size);
+  transition: $chirho-transition;
+
+  &:hover {
+    transform: rotate(5deg) scale(1.05);
+  }
 }
 
 // ------------------------------------------------
@@ -34,9 +46,59 @@
 }
 
 .social-link {
-  &:hover .social-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+
+    .social-icon {
+      transform: scale(1.15);
+      opacity: 0.9;
+    }
+  }
+}
+
+// ------------------------------------------------
+// Iconos con animacion de bounce al hover
+// ------------------------------------------------
+.icon-bounce {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    animation: bounce 0.6s ease;
+  }
+}
+
+// ------------------------------------------------
+// Iconos con rotacion al hover
+// ------------------------------------------------
+.icon-rotate {
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+// ------------------------------------------------
+// Iconos con pulso al hover
+// ------------------------------------------------
+.icon-pulse {
+  &:hover {
+    animation: pulse 0.6s ease;
+  }
+}
+
+// ------------------------------------------------
+// Iconos con efecto de color al hover
+// ------------------------------------------------
+.icon-color-change {
+  transition: color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: $chirho-accent;
     transform: scale(1.1);
-    opacity: 0.8;
   }
 }
 

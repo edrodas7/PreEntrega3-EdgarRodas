@@ -9,6 +9,12 @@
 // ------------------------------------------------
 .card {
   border-radius: $chirho-border-radius;
+  transition: $chirho-transition;
+
+  // Card con hover sutil
+  &:hover {
+    box-shadow: $chirho-shadow;
+  }
 }
 
 // ------------------------------------------------
@@ -19,6 +25,98 @@
   @extend %card-elevation;  // Usa @extend para el efecto hover
   border-radius: $chirho-border-radius;
   overflow: hidden;
+
+  // Efecto zoom en imagen al hover
+  .card-img-top,
+  img {
+    transition: transform 0.4s ease;
+  }
+
+  &:hover {
+    .card-img-top,
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// ------------------------------------------------
+// Card con efecto de brillo al hover
+// ------------------------------------------------
+.card-shine {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($chirho-white, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+// ------------------------------------------------
+// Card con borde animado
+// ------------------------------------------------
+.card-border-animate {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: $chirho-primary;
+  }
+}
+
+// ------------------------------------------------
+// Imagenes con efectos hover
+// ------------------------------------------------
+.img-zoom {
+  overflow: hidden;
+
+  img {
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+.img-grayscale {
+  img {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+  }
+
+  &:hover img {
+    filter: grayscale(0%);
+  }
+}
+
+.img-brightness {
+  img {
+    transition: filter 0.3s ease;
+  }
+
+  &:hover img {
+    filter: brightness(1.1);
+  }
 }
 
 // ------------------------------------------------
